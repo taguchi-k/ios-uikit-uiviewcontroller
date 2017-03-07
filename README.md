@@ -1,6 +1,6 @@
 # UIViewController
 ## 概要
-UIViewControllerは、UIKitアプリケーションのビューを管理するためクラスです。
+UIViewControllerは、UIKitアプリケーションのViewを管理するためクラスです。
 
 ## 関連クラス
 UIResponder
@@ -17,7 +17,7 @@ UIResponder
 
 |メソッド名|説明|
 |---|---|
-|viewDidLoad() | コントローラのビューがメモリにロードされた後に呼ばれる | 
+|viewDidLoad() | コントローラのViewがメモリにロードされた後に呼ばれる | 
 |viewWillAppear(_:) | Viewが表示される直前に呼ばれる |
 |viewDidAppear(_:)|Viewが表示されたときに呼ばれる|
 |viewWillDisappear(_:)|Viewが表示されなくなる直前に呼ばれる|
