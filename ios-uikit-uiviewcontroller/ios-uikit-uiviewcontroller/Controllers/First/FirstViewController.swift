@@ -10,7 +10,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
-    //MARK:- UIViewController's LifeCycle
+    //MARK: - UIViewController's LifeCycle
     
     /// Viewのロードがされた後で呼ばれる
     override func viewDidLoad() {
@@ -47,25 +47,48 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         print(#file, #function, #line)
     }
+
+    /// Subviewsをレイアウトする直前に呼ばれる
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print(#file, #function, #line)
+    }
+
+    /// Subviewsをレイアウトされたときに呼ばれる
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print(#file, #function, #line)
+    }
+
+    /// オートレイアウトの制約を更新する必要があるときに呼ばれる
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        print(#file, #function, #line)
+    }
+
+    /// オブジェクトが解放されるときに呼ばれる 
+    deinit {
+        print(#file, #function, #line)
+    }
     
-    //MARK:- IBActions
+    //MARK: - IBActions
     
     @IBAction func tappedSecond(_ sender: Any) {
         let secondVC = SecondViewController()
         
         // SecondViewControllerへ画面遷移
-        self.present(secondVC, animated: true, completion: nil)
+        present(secondVC, animated: true)
     }
     
     @IBAction func tappedShowModal(_ sender: Any) {
-        let modalVC = UIStoryboard.init(name: "Modal", bundle: nil).instantiateInitialViewController()
+        let modalVC = UIStoryboard(name: "Modal", bundle: nil).instantiateInitialViewController()
         guard let vc = modalVC else { return }
         
         // ModalViewControllerへ画面遷移
-        self.present(vc, animated: true) {
+        present(vc, animated: true) {
             
             // Modal表示する遷移先のViewControllerを取得してログに出力する
-            print("\(self.presentedViewController)")
+            print("\(self.presentedViewController!)")
         }
     }
 }
